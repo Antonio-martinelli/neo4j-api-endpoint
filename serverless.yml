@@ -1,0 +1,45 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: neo4j-api-endpoint
+app: neo4j-api-endpoint
+org: default
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: development
+  region: us-west-2
+
+plugins:
+  - serverless-ssm-fetch
+  - serverless-python-requirements
+
+custom:
+  serverlessSsmFetch:
+    NEO4J_URI: /development/database/NEO4J_URI~true
+    NEO4J_USER: /development/database/NEO4J_USER~true
+    NEO4J_PASSWORD: /development/database/NEO4J_PASSWORD~true
+    JWT_SECRET: /development/database/JWT_SECRET~true
+      
+functions:
+  getEntryCount:
+    handler: src/functions/handler.getEntryCount
+    events:
+      - http:
+          path: /getEntryCount
+          method: get

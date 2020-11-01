@@ -1,0 +1,14 @@
+{
+  "name": "package.json",
+  "description": "Dependencies configuration file",
+  "version": "0.1.0",
+  "dependencies": {
+    "serverless-python-requirements": "^5.1.0"
+  },
+  "devDependencies": {
+    "serverless-ssm-fetch": "^1.0.2"
+  },
+  "main": "handler.py",
+  "author": "Antonio Martinelli",
+  "license": "ISC"
+}
