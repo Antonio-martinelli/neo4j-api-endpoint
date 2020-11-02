@@ -100,5 +100,5 @@ def getEntryCount(event, context):
             "Content-Type": "application/json",
             "JWT": encoded_jwt
             },
-        "body": {"message" : result}
+        "body": json.dumps({"message" : result})
     }
