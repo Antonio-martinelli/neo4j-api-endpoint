@@ -41,7 +41,7 @@ def getEntryCount(event, context):
             "statusCode": 401,
             "headers": {
                 "Content-Type": "application/json",
-                "JWT": json.dumps({"message" :encoded_jwt})
+                "JWT": encoded_jwt
             },
             "body": json.dumps({"message" "JWT is tampered."})
         }
