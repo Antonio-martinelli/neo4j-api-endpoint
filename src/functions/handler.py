@@ -43,7 +43,7 @@ def getEntryCount(event, context):
                 "Content-Type": "application/json",
                 "JWT": encoded_jwt
             },
-            "body": json.dumps({"message" "JWT is tampered."})
+            "body": json.dumps({"message" : "JWT is tampered."})
         }
 
     #Checking if database to connect to is specified
